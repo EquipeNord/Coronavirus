@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     DialogLogin dLogin;
     if(dLogin.exec() == QDialog::Accepted) {
-        MainWindow w;
+        MainWindow w(&dLogin.myNWM, dLogin.identifiant, dLogin.pseudo);
         w.show();
         return a.exec();
     } else {
