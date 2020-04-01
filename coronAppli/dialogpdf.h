@@ -14,9 +14,14 @@ class DialogPDF : public QDialog
 public:
     explicit DialogPDF(QWidget *parent = 0);
     ~DialogPDF();
+    QString htmlComplet;
 
 private slots:
     void on_pushButtonClose_clicked();
+
+    void on_pushButtonDownload_clicked();
+
+    void displayCertificate();
 
 private:
     Ui::DialogPDF *ui;

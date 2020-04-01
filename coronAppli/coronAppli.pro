@@ -4,7 +4,10 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql printsupport widgets
+
+INCLUDEPATH += $POPPLER/include/poppler/qt5
+LIBS += -L$POPPLER/lib -lpoppler-qt5
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
