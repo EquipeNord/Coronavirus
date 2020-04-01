@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDebug>
 #include "dialoglogin.h"
+#include "dialogsymptomes.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ public:
     explicit MainWindow(QNetworkAccessManager *pmyNWM, QString leId, QString lePseudo, QWidget *parent = 0);
     ~MainWindow();
 
+    void verifSaisies();
 private:
     Ui::MainWindow *ui;
     QNetworkAccessManager * myNWM;

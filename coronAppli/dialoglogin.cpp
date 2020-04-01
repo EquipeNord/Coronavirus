@@ -56,8 +56,7 @@ void DialogLogin::on_pushButtonLogIn_clicked()
         //exécution de la requête http
         QNetworkReply *reply1 = myNWM.post(request,postData);
         //attente de la réception complète de la réponse
-        while(!reply1->isFinished())
-        {
+        while(!reply1->isFinished()) {
             qApp->processEvents();
         }
         //lecture de la réponse
@@ -70,16 +69,14 @@ void DialogLogin::on_pushButtonLogIn_clicked()
         qDebug()<<jsonResponse.object();
         qDebug()<<jsonResponse.object().count();
         //on recoit un tableau de 4 cases: 2 indexées par des entiers et 2 indexées par les noms des champs
-        if(jsonResponse.object().count() == 4)
-        {
+        if(jsonResponse.object().count() == 4) {
             //recupération des infos (nom, prenom et identifiant sont trois champs renvoyés par la requête sql utilisée par le webService)
             identifiant = jsonResponse.object()["humId"].toString();
             pseudo = jsonResponse.object()["humPseudo"].toString();
             //si c'est bon on ferme la fenêtre de connexion avec un code de retour QDialog::accepted
             accept();
         }
-        else
-        {
+        else {
             //identification incorrecte
             ui->labelLogInAlertMessage->setText(tr("Login or password is invalid."));
         }
